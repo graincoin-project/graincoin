@@ -278,11 +278,19 @@ bool CheckStakeKernelHash(unsigned int nBits, const CBlock& blockFrom, unsigned 
     CBigNum bnTargetPerCoinDay;
     bnTargetPerCoinDay.SetCompact(nBits);
     int64 nValueIn = txPrev.vout[prevout.n].nValue;
+    int64 nTimeWeight;
 
     // v0.4 protocol kernel hash weight starts from 0 at the 10-day min age
     // this change increases active coins participating the hash and helps
     // to secure the network when proof-of-stake difficulty is low
-    int64 nTimeWeight = min((int64)nTimeTx - txPrev.nTime, (int64)nStakeMaxAge) - nStakeMinAge;
+    //
+    // Disabled for the moment, needs some discussion. That's planned to make this active since 01 Jan 2014
+
+    if(fTestNet || (false && STAKEWEIGHT_SWITCH_TIME < nTimeTx))
+        nTimeWeight = min((int64)nTimeTx - txPrev.nTime - nStakeMinAge, (int64)nStakeMaxAge);
+    else
+        nTimeWeight = min((int64)nTimeTx - txPrev.nTime, (int64)nStakeMaxAge) - nStakeMinAge;
+
     CBigNum bnCoinDayWeight = CBigNum(nValueIn) * nTimeWeight / COIN / (24 * 60 * 60);
 
     // Calculate hash
