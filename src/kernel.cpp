@@ -12,9 +12,7 @@ using namespace std;
 extern int nStakeMaxAge;
 extern int nStakeTargetSpacing;
 
-// Modifier interval: time to elapse before new modifier is computed
-// Set to 6-hour for production network and 20-minute for test network
-unsigned int nModifierInterval = MODIFIER_INTERVAL;
+typedef std::map<int, unsigned int> MapModifierCheckpoints;
 
 // Hard checkpoints of stake modifiers to ensure they are deterministic
 static std::map<int, unsigned int> mapStakeModifierCheckpoints =
@@ -26,6 +24,12 @@ static std::map<int, unsigned int> mapStakeModifierCheckpoints =
     (  70001, 0x36b46be0u )
     ( 100001, 0x5e77aa2eu )
     ( 110501, 0xef43b0bfu )
+    ;
+
+// Hard checkpoints of stake modifiers to ensure they are deterministic (testNet)
+static std::map<int, unsigned int> mapStakeModifierCheckpointsTestNet =
+    boost::assign::map_list_of
+        ( 0, 0x0e00670bu )
     ;
 
 // Get the last stake modifier and its generation time from a given block
@@ -394,8 +398,9 @@ unsigned int GetStakeModifierChecksum(const CBlockIndex* pindex)
 // Check stake modifier hard checkpoints
 bool CheckStakeModifierCheckpoints(int nHeight, unsigned int nStakeModifierChecksum)
 {
-    if (fTestNet) return true; // Testnet has no checkpoints
-    if (mapStakeModifierCheckpoints.count(nHeight))
-        return nStakeModifierChecksum == mapStakeModifierCheckpoints[nHeight];
+    MapModifierCheckpoints& checkpoints = (fTestNet ? mapStakeModifierCheckpointsTestNet : mapStakeModifierCheckpoints);
+
+    if (checkpoints.count(nHeight))
+        return nStakeModifierChecksum == checkpoints[nHeight];
     return true;
 }
