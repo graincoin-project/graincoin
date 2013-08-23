@@ -857,7 +857,6 @@ public:
 
     // memory only
     mutable std::vector<uint256> vMerkleTree;
-    uint256 hashBlock;
 
     // Denial-of-service detection:
     mutable int nDoS;
@@ -903,7 +902,6 @@ public:
         vchBlockSig.clear();
         vMerkleTree.clear();
         nDoS = 0;
-        hashBlock = 0;
     }
 
     bool IsNull() const
@@ -911,7 +909,7 @@ public:
         return (nBits == 0);
     }
 
-    uint256 GetHash(bool fRehash=false) const
+    uint256 GetHash() const
     {
         return scrypt_blockhash(CVOIDBEGIN(nVersion));
     }
