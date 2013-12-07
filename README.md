@@ -1,38 +1,24 @@
 
-NovaCoin official development tree
+Grain (GRA) 
 
-NovaCoin - a hybrid scrypt PoW + PoS based cryptocurrency.
+Grain is a PoW/PoS coin that is designed to be the unit of cybercoin. It has a total of 50 billion unit to be released, through a fair p2p mining process. Grain is from the family of PPCoin/Novacoin with latest available algorithms that fixed various problems in the PoW/PoS coins. As compared to the PoW only coins, the proof of stake coins are more resilient to 51% attack. Also it is a long term energy-efficient crypto-currency since not all coins are obtained by mining.
 
-* 10 minute PoW block targets
-* 10 minute PoS block targets
-* The PoW subsidy halves every x64 multiply of difficulty
-* Maximum PoW reward is 100 coins
-* ~ 2 billion total coins
+Each grain block provides random 1024 - 2048 grains initially. It also provides rare superblocks. The coin uses hash-based algorithm to determine superblocks based on the number of 9s in the previous block hash. It works as follows:
+- the hash contains six 9s or less: regular block
+- the hash contains seven or eight 9s: 8 times the regular block (about 5% chances)
+- the hash contains nine or more 9s: 64 times the regular block (about 1% chances)
 
-Development process
-===========================
+Grain also provides 5% annual interest on the grained held. The interest will be paid about every 2 weeks.
 
-Developers work in their own trees, then submit pull requests when
-they think their feature or bug fix is ready.
+Specifications:
+	- 30 seconds block target
+	- 1024-2048 grains per block for normal blocks
+	- 8 times or 64 times the regular payout per block for super blocks depends on the number of 9s in the previous hash
+	- Difficulty retargets every block 
+	- mining payout will be halved every 90 days (259200 blocks)
+	- minimum payout per block 1 coin
+	- Total grains will be 50 billions
+	- 6 confirmations for transaction
+	- 50 confirmations for minted blocks
 
-The patch will be accepted if there is broad consensus that it is a
-good thing.  Developers should expect to rework and resubmit patches
-if they don't match the project's coding conventions (see coding.txt)
-or are controversial.
-
-The master branch is regularly built and tested, but is not guaranteed
-to be completely stable. Tags are regularly created to indicate new
-official, stable release versions of NovaCoin.
-
-Feature branches are created when there are major new features being
-worked on by several people.
-
-From time to time a pull request will become outdated. If this occurs, and
-the pull is no longer automatically mergeable; a comment on the pull will
-be used to issue a warning of closure. The pull will be closed 15 days
-after the warning if action is not taken by the author. Pull requests closed
-in this manner will have their corresponding issue labeled 'stagnant'.
-
-Issues with no commits will be given a similar warning, and closed after
-15 days from their last activity. Issues closed in this manner will be 
-labeled 'stale'.
+	- Ports: 11054 (connection) and 11055 (RPC)

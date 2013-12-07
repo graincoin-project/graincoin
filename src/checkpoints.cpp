@@ -24,16 +24,15 @@ namespace Checkpoints
     //
     static MapCheckpoints mapCheckpoints =
         boost::assign::map_list_of
-        ( 0, hashGenesisBlockOfficial )
-        ( 6000, uint256("0x000000000945e3c9d8e15df834e802521eb79f9ceb4191a27bdfadad4b777f4a"))
-        ( 8700, uint256("0x00000000014270724837789c9a69859290f6bdee38556bc4561c21f17935a178"))
-        ( 13560, uint256("0xa1591a0fcbf11f282d671581edb9f0aadcd06fee69761081e0a3245914c13729"))
-        ( 14189, uint256("0x00000000020f76474d2522b19c7bfafc43ba6ecbabae54293bcd9546159c8c1d"))
+        (   0, hashGenesisBlockOfficial )
+        (  65, uint256("0x0000018e7861c4a4d4cad0f2cf32009b0a1e91ddb1b570d737b1f62f78cc35ae"))
+        (  92, uint256("0x000000320a8931ff4df6469b1ae81d9ccd68bd47d0ca95177801cb1cf8121a33"))
+        ( 151, uint256("0x000006f1c5dadd2c8bb9f96223af8c8d37a3d4ccf146cdb08d0d4f282b2e226a"))
         ;
 
     static MapCheckpoints mapCheckpointsTestnet =
         boost::assign::map_list_of
-        ( 0, hashGenesisBlockOfficial )
+        ( 0, hashGenesisBlockTestNet )
         ;
 
     bool CheckHardened(int nHeight, const uint256& hash)
@@ -297,7 +296,7 @@ namespace Checkpoints
     {
         // Test signing a sync-checkpoint with genesis block
         CSyncCheckpoint checkpoint;
-        checkpoint.hashCheckpoint = hashGenesisBlock;
+        checkpoint.hashCheckpoint = !fTestNet ? hashGenesisBlock : hashGenesisBlockTestNet;
         CDataStream sMsg(SER_NETWORK, PROTOCOL_VERSION);
         sMsg << (CUnsignedSyncCheckpoint)checkpoint;
         checkpoint.vchMsg = std::vector<unsigned char>(sMsg.begin(), sMsg.end());
@@ -367,7 +366,7 @@ namespace Checkpoints
 }
 
 // ppcoin: sync-checkpoint master key
-const std::string CSyncCheckpoint::strMasterPubKey = "04a51b735f816de4ec3f891d5b38bbc91e1f7245c7c08d17990760b86b4d8fc3910a850ffecf73bfa8886f01739a0c4c4322201282d07b6e48ce931cc92af94850";
+const std::string CSyncCheckpoint::strMasterPubKey = "04888a777877739a3e1234777111aaa4fa1808345195edcf2d4671b1cceaaa68b7f2f588a9dfad5753be3cd6b8e9518be439c936e2bad93a25bb6d32300fab41c3";
 
 std::string CSyncCheckpoint::strMasterPrivKey = "";
 

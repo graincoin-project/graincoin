@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>593</width>
-    <height>319</height>
+    <height>331</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>About NovaCoin</string>
+   <string>About Grain</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout_2">
    <item>
@@ -50,7 +50,7 @@
           <cursorShape>IBeamCursor</cursorShape>
          </property>
          <property name="text">
-          <string>&lt;b&gt;NovaCoin&lt;/b&gt; version</string>
+          <string>&lt;b&gt;Grain&lt;/b&gt; version</string>
          </property>
          <property name="textInteractionFlags">
           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
@@ -91,7 +91,7 @@
         <cursorShape>IBeamCursor</cursorShape>
        </property>
        <property name="text">
-        <string>Copyright © 2009-2012 The NovaCoin developers</string>
+        <string>Copyright © 2009-2012 The Grain developers</string>
        </property>
        <property name="textInteractionFlags">
         <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
