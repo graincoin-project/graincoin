@@ -37,6 +37,7 @@ static const int64 MAX_MINT_PROOF_OF_STAKE = 0.05 * COIN; // Grain: 5% annual in
 static const int64 MIN_TXOUT_AMOUNT = MIN_TX_FEE;
 static const int64 CIRCULATION_MONEY = MAX_MONEY;
 static const double TAX_PERCENTAGE = 0.01;
+static const int GRAIN_SWITCHOVER_BLOCK = 92000; // Grain: switch to fixed diff re-adjustment algorithm at height 92000
 inline bool MoneyRange(int64 nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
 // Threshold for nLockTime: below this value it is interpreted as block number, otherwise as UNIX timestamp.
 static const unsigned int LOCKTIME_THRESHOLD = 500000000; // Tue Nov  5 00:53:20 1985 UTC
@@ -433,10 +434,6 @@ class CTransaction
 {
 public:
     static const int CURRENT_VERSION=1;
-<<<<<<< HEAD
-=======
-
->>>>>>> grain
     int nVersion;
     unsigned int nTime;
     std::vector<CTxIn> vin;
@@ -460,11 +457,7 @@ public:
         READWRITE(vin);
         READWRITE(vout);
         READWRITE(nLockTime);
-<<<<<<< HEAD
     )
-=======
-	)
->>>>>>> grain
 
     void SetNull()
     {
@@ -598,11 +591,7 @@ public:
     {
         // Large (in bytes) low-priority (new, small-coin) transactions
         // need a fee.
-<<<<<<< HEAD
-        return dPriority > COIN * 144 / 250;
-=======
         return dPriority > COIN * 2880 / 250;
->>>>>>> grain
     }
 
     int64 GetMinFee(unsigned int nBlockSize=1, bool fAllowFree=false, enum GetMinFee_mode mode=GMF_BLOCK) const;
@@ -665,13 +654,7 @@ public:
             nVersion,
             vin.size(),
             vout.size(),
-<<<<<<< HEAD
             nLockTime);
-=======
-            nLockTime
-			);
-
->>>>>>> grain
         for (unsigned int i = 0; i < vin.size(); i++)
             str += "    " + vin[i].ToString() + "\n";
         for (unsigned int i = 0; i < vout.size(); i++)
@@ -855,11 +838,7 @@ class CBlock
 {
 public:
     // header
-<<<<<<< HEAD
-    static const int CURRENT_VERSION=3;
-=======
     static const int CURRENT_VERSION=4;
->>>>>>> grain
     int nVersion;
     uint256 hashPrevBlock;
     uint256 hashMerkleRoot;
@@ -949,31 +928,11 @@ public:
     // ppcoin: entropy bit for stake modifier if chosen by modifier
     unsigned int GetStakeEntropyBit(unsigned int nHeight) const
     {
-<<<<<<< HEAD
-        // Protocol switch to support p2pool at novacoin block #9689
-        if (nHeight >= 9689)
-        {
-            // Take last bit of block hash as entropy bit
-            unsigned int nEntropyBit = ((GetHash().Get64()) & 1llu);
-            if (fDebug && GetBoolArg("-printstakemodifier"))
-                printf("GetStakeEntropyBit: nHeight=%u hashBlock=%s nEntropyBit=%u\n", nHeight, GetHash().ToString().c_str(), nEntropyBit);
-            return nEntropyBit;
-        }
-        // Before novacoin block #9689 - old protocol
-        uint160 hashSig = Hash160(vchBlockSig);
-        if (fDebug && GetBoolArg("-printstakemodifier"))
-            printf("GetStakeEntropyBit: hashSig=%s", hashSig.ToString().c_str());
-        hashSig >>= 159; // take the first bit of the hash
-        if (fDebug && GetBoolArg("-printstakemodifier"))
-            printf(" entropybit=%"PRI64d"\n", hashSig.Get64());
-        return hashSig.Get64();
-=======
         // Take last bit of block hash as entropy bit
         unsigned int nEntropyBit = ((GetHash().Get64()) & 1llu);
         if (fDebug && GetBoolArg("-printstakemodifier"))
             printf("GetStakeEntropyBit: nHeight=%u hashBlock=%s nEntropyBit=%u\n", nHeight, GetHash().ToString().c_str(), nEntropyBit);
         return nEntropyBit;
->>>>>>> grain
     }
 
     // ppcoin: two types of block: proof-of-work or proof-of-stake
@@ -1109,17 +1068,10 @@ public:
     void print() const
     {
         printf("CBlock(hash=%s, ver=%d, hashPrevBlock=%s, hashMerkleRoot=%s, nTime=%u, nBits=%08x, nNonce=%u, vtx=%"PRIszu", vchBlockSig=%s)\n",
-<<<<<<< HEAD
-            GetHash().ToString().substr(0,20).c_str(),
-            nVersion,
-            hashPrevBlock.ToString().substr(0,20).c_str(),
-            hashMerkleRoot.ToString().substr(0,10).c_str(),
-=======
             GetHash().ToString().c_str(),
             nVersion,
             hashPrevBlock.ToString().c_str(),
             hashMerkleRoot.ToString().c_str(),
->>>>>>> grain
             nTime, nBits, nNonce,
             vtx.size(),
             HexStr(vchBlockSig.begin(), vchBlockSig.end()).c_str());
@@ -1281,18 +1233,7 @@ public:
         return (int64)nTime;
     }
 
-<<<<<<< HEAD
-    CBigNum GetBlockTrust() const
-    {
-        CBigNum bnTarget;
-        bnTarget.SetCompact(nBits);
-        if (bnTarget <= 0)
-            return 0;
-        return (IsProofOfStake()? (CBigNum(1)<<256) / (bnTarget+1) : 1);
-    }
-=======
     CBigNum GetBlockTrust() const;
->>>>>>> grain
 
     bool IsInMainChain() const
     {
@@ -1389,13 +1330,8 @@ public:
             nStakeModifier, nStakeModifierChecksum, 
             hashProofOfStake.ToString().c_str(),
             prevoutStake.ToString().c_str(), nStakeTime,
-<<<<<<< HEAD
-            hashMerkleRoot.ToString().substr(0,10).c_str(),
-            GetBlockHash().ToString().substr(0,20).c_str());
-=======
             hashMerkleRoot.ToString().c_str(),
             GetBlockHash().ToString().c_str());
->>>>>>> grain
     }
 
     void print() const
@@ -1479,13 +1415,8 @@ public:
         str += CBlockIndex::ToString();
         str += strprintf("\n                hashBlock=%s, hashPrev=%s, hashNext=%s)",
             GetBlockHash().ToString().c_str(),
-<<<<<<< HEAD
-            hashPrev.ToString().substr(0,20).c_str(),
-            hashNext.ToString().substr(0,20).c_str());
-=======
             hashPrev.ToString().c_str(),
             hashNext.ToString().c_str());
->>>>>>> grain
         return str;
     }
 
@@ -1564,11 +1495,7 @@ public:
             if (vHave.size() > 10)
                 nStep *= 2;
         }
-<<<<<<< HEAD
-        vHave.push_back(hashGenesisBlock);
-=======
         vHave.push_back((!fTestNet ? hashGenesisBlock : hashGenesisBlockTestNet));
->>>>>>> grain
     }
 
     int GetDistanceBack()
@@ -1621,11 +1548,7 @@ public:
                     return hash;
             }
         }
-<<<<<<< HEAD
-        return hashGenesisBlock;
-=======
         return (!fTestNet ? hashGenesisBlock : hashGenesisBlockTestNet);
->>>>>>> grain
     }
 
     int GetHeight()
