@@ -39,6 +39,7 @@ static const int64 CIRCULATION_MONEY = MAX_MONEY;
 static const double TAX_PERCENTAGE = 0.01;
 static const int GRAIN_SWITCHOVER_BLOCK = 92000; // Grain: switch to fixed diff re-adjustment algorithm at height 92000
 static const int GRAIN_SWITCHOVER1_BLOCK = 130000; // Grain: switch to 3x max PoW fixed diff re-adjustment algorithm at height 130000
+static const int GRAIN_SWITCHOVER2_BLOCK = 232770; // Grain: switch to delayed bonus block reward at height 232770
 inline bool MoneyRange(int64 nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
 // Threshold for nLockTime: below this value it is interpreted as block number, otherwise as UNIX timestamp.
 static const unsigned int LOCKTIME_THRESHOLD = 500000000; // Tue Nov  5 00:53:20 1985 UTC
