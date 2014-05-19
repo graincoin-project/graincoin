@@ -477,7 +477,7 @@ bool CTransaction::CheckTransaction() const
             return DoS(100, error("CTransaction::CheckTransaction() : txout empty for user transaction"));
         // Grain: enforce minimum output amount for user transactions
         // (and for all transactions until 20 Sep 2013)
-        if ((!IsCoinBase() || nTime < CHAINCHECKS_SWITCH_TIME)
+        if ((!IsCoinBase() /* ||  nTime < CHAINCHECKS_SWITCH_TIME */)
                 && (!txout.IsEmpty()) && txout.nValue < MIN_TXOUT_AMOUNT)
             return DoS(100, error("CTransaction::CheckTransaction() : txout.nValue below minimum"));
         if (txout.nValue > MAX_MONEY)
@@ -2307,13 +2307,6 @@ CBigNum CBlockIndex::GetBlockTrust() const
         return bnPoWTrust > 1 ? bnPoWTrust : 1;
     }
 #else
-    CBigNum bnTarget;
-    // Old protocol
-    if (!fTestNet && GetBlockTime() < CHAINCHECKS_SWITCH_TIME)
-    {
-        CBigNum bnTarget;
-        bnTarget.SetCompact(nBits);
-
     /* Old protocol, will be removed later */
     if (!fTestNet && GetBlockTime() < CHAINCHECKS_SWITCH_TIME)
         return (IsProofOfStake()? (CBigNum(1)<<256) / (bnTarget+1) : 1);
