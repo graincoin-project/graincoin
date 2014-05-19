@@ -940,33 +940,23 @@ int generateMTRandom(unsigned int s, int range)
     return dist(gen);
 }
 
-int get9Counts(uint256 hash)
+int get9Counts(const uint256& hash)
 {
     int count = 0;
-    std::string str = hash.ToString();
-    const char* cstr = str.c_str();
-
-    char* pc = (char*)cstr;
-    while(*pc != '\0')
-    {
-        if(*pc == '9')
-            ++count;
-        ++pc;
-    }
-
+    for (int i = 0; i < 4; i++)
+        for (uint64 v = hash.Get64(i); v != 0; v >>= 4)
+            if ((v & 0xF) == 9) count++;
     return count;
 }
 
 static const int64 nMinSubsidy = 1 * COIN;
 
 // miner's coin base reward based on nBits
-int64 GetProofOfWorkReward(int nHeight, int64 nFees, uint256 prevHash)
+int64 GetProofOfWorkReward(int nHeight, int64 nFees,const uint256& prevHash)
 {
     int64 nSubsidy = 1024 * COIN;
 
-    std::string cseed_str = prevHash.ToString().substr(10,7);
-    const char* cseed = cseed_str.c_str();
-    long seed = hex2long(cseed);
+    long seed = (long)((prevHash>>188).Get64())&0xFFFFFFF;
     nSubsidy += generateMTRandom(seed, 1024) * COIN;
 
     if (nHeight < GRAIN_SWITCHOVER2_BLOCK)
@@ -974,13 +964,13 @@ int64 GetProofOfWorkReward(int nHeight, int64 nFees, uint256 prevHash)
         int count9 = get9Counts(prevHash);
 
         if(count9 > 8)
-        {
-            nSubsidy *= 64;
-        }
-        else if(count9 > 6)
-        {
-            nSubsidy *= 8;
-        }
+	{
+	    nSubsidy *= 64;
+	}
+	else if(count9 > 6)
+	{
+	    nSubsidy *= 8;
+	}
     }
 
     if(nHeight == 1)
