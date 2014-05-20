@@ -1031,7 +1031,6 @@ static const int64 nTargetSpacingWorkMax = 12 * nStakeTargetSpacing;
 
 //
 // maximum nBits value could possible be required nTime after
-// minimum proof-of-work required was nBase
 //
 unsigned int ComputeMaxBits(CBigNum bnTargetLimit, unsigned int nBase, int64 nTime)
 {
