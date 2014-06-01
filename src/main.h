@@ -41,6 +41,7 @@ static const int GRAIN_SWITCHOVER_BLOCK = 92000; // Grain: switch to fixed diff 
 static const int GRAIN_SWITCHOVER1_BLOCK = 130000; // Grain: switch to 3x max PoW fixed diff re-adjustment algorithm at height 130000
 static const int GRAIN_SWITCHOVER2_BLOCK = 310000; // Grain: switch to delayed bonus block reward at height 310000
 static const unsigned int STAKEWEIGHT_SWITCH_TIME = 1401580800; // Grain: Sun Jun  1 00:00:00 UTC 2014
+static const unsigned int GRAIN_SWITCHOVER3_TIME = 1401926400; // Grain: Thu Jun  5 00:00:00 UTC 2014
 inline bool MoneyRange(int64 nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
 // Threshold for nLockTime: below this value it is interpreted as block number, otherwise as UNIX timestamp.
 static const unsigned int LOCKTIME_THRESHOLD = 500000000; // Tue Nov  5 00:53:20 1985 UTC
