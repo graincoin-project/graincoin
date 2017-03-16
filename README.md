@@ -5,32 +5,35 @@ GrainCoin Official Development Tree
 GrainCoin - a hybrid scrypt PoW + PoS based cryptocurrency.
 
 ### What is GrainCoin (Grain)?
-[GrainCoin](http://graincoin.net/) (abbreviated GRA), also known as Grain is a [cryptocurrency](https://en.wikipedia.org/wiki/Cryptocurrency) design featuring [proof-of-stake consensus](http://peercoin.net/bin/peercoin-paper.pdf) as a security model, with a combined [proof-of-stake](http://peercoin.net/bin/peercoin-paper.pdf)/[proof-of-work](https://en.wikipedia.org/wiki/Proof-of-work_system) minting system. GrainCoin is based on [Bitcoin](http://bitcoin.org/en/), while highlighting many important innovations to cryptocurrency field including new security model, energy efficiency, better minting model and more adaptive response to rapid change in network computation power.
+[GrainCoin](http://graincoin.net/) (abbreviated GRA), also known as Grain is a [cryptocurrency](https://en.wikipedia.org/wiki/Cryptocurrency) design featuring [proof-of-stake consensus](https://peercoin.net/assets/paper/peercoin-paper.pdf) as a security model, with a combined [proof-of-stake](https://peercoin.net/assets/paper/peercoin-paper.pdf)/[proof-of-work](https://en.wikipedia.org/wiki/Proof-of-work_system) minting system. GrainCoin is based on [Bitcoin](http://bitcoin.org/en/), while highlighting many important innovations to the cryptocurrency field including a new security model, energy efficiency, a better minting model and more adaptive response to a rapid change in network computational power.
 
 * 30 seconds block target
-* 1024-2048 grains per block for normal blocks
-* 8 times or 64 times the regular payout per block for super blocks depends on the number of 9s in the previous hash
+* 1024-2048 GRA per block for normal blocks
+* 8x or 64x the regular payout per block for superblocks depending on the number of 9s in the previous hash
 * Difficulty retargets every block 
 * Mining payout will be halved every 90 days (259200 blocks)
-* Minimum payout per block 1 coin
-* Total grains will be 50 billion
-* 6 confirmations for transaction
+* Minimum payout per block 1 GRA
+* Total blackchain emission will be 50 billion GRA
+* 6 confirmations for a transaction
 * 50 confirmations for minted blocks
-* Peer port: 11054 MainNet, 21054 TestNet
-* RPC port: 11055 MainNet, 21055 TestNet
+* Peer port is 11054 for MainNet and 21054 for TestNet
+* RPC port is 11055 for MainNet and 21055 for TestNet
+* Community IRC can be found on Freenode at [#GrainCoin](http://webchat.freenode.net/?channels=GrainCoin)
 
-Each grain block provides random 1024 - 2048 grains initially. It also provides rare superblocks. The coin uses hash-based algorithm to determine superblocks based on the number of 9s in the previous block hash. It works as follows:
-- The hash contains six 9s or less: regular block
-- The hash contains seven or eight 9s: 8 times the regular block (about 5% chances)
-- The hash contains nine or more 9s: 64 times the regular block (about 1% chances)
+Each GrainCoin block provides a random 1024-2048 GRA initially. There are also rare superblocks. GrainCoin employs a hash-based algorithm to determine superblocks based on the number of 9s in the previous block hash.
 
-Grain also provides 5% annual interest on the grained held. The interest will be paid about every 2 weeks.
+### Superblocks work as follows
+* Regular block, the hash contains less than or equal to six 9s
+* 8x Superblock, the hash contains seven or eight 9s (~5% chance)
+* 64x Superblock, the hash contains greater than or equal to nine 9s (~1% chance)
+
+GrainCoin also provides 5% annual interest on the GRA held. The interest will be paid approximately every 2 weeks.
 
 ### GrainCoin Resources
 * Source:
 [Source Code](https://github.com/graincoin-project/graincoin)
 * Help: 
-[BitcoinTalk Forum](https://bitcointalk.org/index.php?topic=636580.new),
+[BitcoinTalk Forum](https://bitcointalk.org/index.php?topic=636580.new)
 
 License
 -------
@@ -45,7 +48,7 @@ The `master` branch is regularly built and tested, but is not guaranteed to be
 completely stable. [Tags](https://github.com/graincoin-project/graincoin/tags) are created
 regularly to indicate new official, stable release versions of GrainCoin.
 
-Developer IRC can be found on Freenode at #Grain.
+Developer IRC can be found on Freenode at [#GrainCoin-dev](http://webchat.freenode.net/?channels=GrainCoin-dev).
 
 Testing
 -------
