@@ -1,3 +1,4 @@
+// Copyright (c) 2013-2017 The Bitcoin developers
 // Copyright (c) 2009-2012 The Bitcoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
@@ -35,14 +36,15 @@ namespace Checkpoints
     //
     static MapCheckpoints mapCheckpoints =
         boost::assign::map_list_of
-        (      0, initCheckpoint(hashGenesisBlock, 1386399123) )
-        (  10001, initCheckpoint(uint256("0x000000010e60f3e2fcac1ed5ec9bc59bb453e98375f63c13fb635960f0c83ec1"), 1386744728) )
-        (  30001, initCheckpoint(uint256("0x000000002fb0103aefd831bfc04e5faa0046a8f858c673b25cde2e303cb7f1f3"), 1387361751) )
-        (  50001, initCheckpoint(uint256("0x0000000060a6f49e5a54578b8b4e366cb67b67ff2404eaece9b8a8139d7be965"), 1388190323) )
-        (  70001, initCheckpoint(uint256("0x000000011915ab590fe4b85cb6657c58786eb31ebc674a8aa5eb6dce1382c779"), 1388804983) )
-        ( 100001, initCheckpoint(uint256("0x3289eccbec732b0b0ba6cd29057ca18cc566598f29ca9eea36dbc385042c22bb"), 1389711065) )
-        ( 110501, initCheckpoint(uint256("0x4b3dbc18478245e9d9c3a32645c52d18c014ae2b81588091975e362dd1f4810a"), 1389988261) )
-        ( 750001, initCheckpoint(uint256("0x12f0929ccfb90dcdeb873560cd4cd21162dfb199e8dac3059cc2b7b001af1783"), 1403527121) )
+        (       0, initCheckpoint(hashGenesisBlock, 1386399123) )
+        (   10001, initCheckpoint(uint256("0x000000010e60f3e2fcac1ed5ec9bc59bb453e98375f63c13fb635960f0c83ec1"), 1386744728) )
+        (   30001, initCheckpoint(uint256("0x000000002fb0103aefd831bfc04e5faa0046a8f858c673b25cde2e303cb7f1f3"), 1387361751) )
+        (   50001, initCheckpoint(uint256("0x0000000060a6f49e5a54578b8b4e366cb67b67ff2404eaece9b8a8139d7be965"), 1388190323) )
+        (   70001, initCheckpoint(uint256("0x000000011915ab590fe4b85cb6657c58786eb31ebc674a8aa5eb6dce1382c779"), 1388804983) )
+        (  100001, initCheckpoint(uint256("0x3289eccbec732b0b0ba6cd29057ca18cc566598f29ca9eea36dbc385042c22bb"), 1389711065) )
+        (  110501, initCheckpoint(uint256("0x4b3dbc18478245e9d9c3a32645c52d18c014ae2b81588091975e362dd1f4810a"), 1389988261) )
+        (  750001, initCheckpoint(uint256("0x12f0929ccfb90dcdeb873560cd4cd21162dfb199e8dac3059cc2b7b001af1783"), 1403527121) )
+        ( 2210496, initCheckpoint(uint256("0x0b3cd9beae759a73ef5c0f96c34cf8bcd7c9a4f46573aad449e38f2708db588b"), 1458673397) )
         ;
 
     // TestNet has no checkpoints
