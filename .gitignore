@@ -1,7 +1,7 @@
 src/*.exe
-src/bitcoin
-src/bitcoind
-src/test_bitcoin
+src/grain
+src/graind
+src/test_grain
 src/build.h
 .*.swp
 *.*~*
@@ -10,11 +10,11 @@ src/build.h
 *.orig
 *.o
 *.patch
-.bitcoin
+.Grain
 #compilation and Qt preprocessor part
 *.qm
 Makefile
-bitcoin-qt
+grain-qt
 #resources cpp
 qrc_*.cpp
 #qt creator
