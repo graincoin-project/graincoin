@@ -4,7 +4,7 @@
 
 #include "hash.h"
 #include "utilstrencodings.h"
-#include "test/test_bitcoin.h"
+#include "test/test_graincoin.h"
 
 #include <vector>
 

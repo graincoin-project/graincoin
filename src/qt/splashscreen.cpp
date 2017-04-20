@@ -57,17 +57,15 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle *networkStyle) 
     QPainter pixPaint(&pixmap);
     pixPaint.setPen(QColor(100,100,100));
 
-    // draw a slightly radial gradient
-    QRadialGradient gradient(QPoint(0,0), splashSize.width()/devicePixelRatio);
-    gradient.setColorAt(0, Qt::white);
-    gradient.setColorAt(1, QColor(247,247,247));
-    QRect rGradient(QPoint(0,0), splashSize);
-    pixPaint.fillRect(rGradient, gradient);
-
+    // draw a backgound image
+    QPixmap background(":/images/background");
+    QRect rectBkgnd(QPoint(0,0), QSize(480,320));
+    pixPaint.drawPixmap(rectBkgnd, background);
+    
     // draw the bitcoin icon, expected size of PNG: 1024x1024
-    QRect rectIcon(QPoint(-150,-122), QSize(430,430));
+    QRect rectIcon(QPoint(10,32), QSize(256,256));
 
-    const QSize requiredSize(1024,1024);
+    const QSize requiredSize(256,256);
     QPixmap icon(networkStyle->getAppIcon().pixmap(requiredSize));
 
     pixPaint.drawPixmap(rectIcon, icon);

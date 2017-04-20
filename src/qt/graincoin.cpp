@@ -3,7 +3,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/bitcoin-config.h"
+#include "config/graincoin-config.h"
 #endif
 
 #include "bitcoingui.h"
@@ -249,7 +249,7 @@ private:
     void startThread();
 };
 
-#include "bitcoin.moc"
+#include "graincoin.moc"
 
 BitcoinCore::BitcoinCore():
     QObject()
@@ -524,8 +524,8 @@ int main(int argc, char *argv[])
     QTextCodec::setCodecForCStrings(QTextCodec::codecForTr());
 #endif
 
-    Q_INIT_RESOURCE(bitcoin);
-    Q_INIT_RESOURCE(bitcoin_locale);
+    Q_INIT_RESOURCE(graincoin);
+    Q_INIT_RESOURCE(graincoin_locale);
 
     BitcoinApplication app(argc, argv);
 #if QT_VERSION > 0x050100
