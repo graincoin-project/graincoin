@@ -75,7 +75,7 @@ int BitcoinUnits::decimals(int unit)
     {
     case BTC: return 6;
     case mBTC: return 3;
-    case uBTC: return 2;
+    case uBTC: return 0;
     default: return 0;
     }
 }
