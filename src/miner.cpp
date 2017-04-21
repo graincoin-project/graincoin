@@ -382,7 +382,7 @@ void static BitcoinMiner(const CChainParams& chainparams)
 {
     LogPrintf("BitcoinMiner started\n");
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
-    RenameThread("bitcoin-miner");
+    RenameThread("graincoin-miner");
 
     unsigned int nExtraNonce = 0;
 
