@@ -66,7 +66,7 @@ public:
 };
 
 /**
- * Bitcoin protocol message types. When adding new message types, don't forget
+ * Graincoin protocol message types. When adding new message types, don't forget
  * to update allNetMessageTypes in protocol.cpp.
  */
 namespace NetMsgType {
