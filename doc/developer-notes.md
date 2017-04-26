@@ -110,7 +110,7 @@ to see it.
 
 **testnet and regtest modes**
 
-Run with the -testnet option to run with "play bitcoins" on the test network, if you
+Run with the -testnet option to run with "play graincoins" on the test network, if you
 are testing multi-machine code that needs to operate across the internet.
 
 If you are testing something that can run on one machine, run with the -regtest option.
@@ -119,7 +119,7 @@ that run in -regtest mode.
 
 **DEBUG_LOCKORDER**
 
-Bitcoin Core is a multithreaded application, and deadlocks or other multithreading bugs
+Graincoin is a multithreaded application, and deadlocks or other multithreading bugs
 can be very difficult to track down. Compiling with -DDEBUG_LOCKORDER (configure
 CXXFLAGS="-DDEBUG_LOCKORDER -g") inserts run-time checks to keep track of which locks
 are held, and adds warnings to the debug.log file if inconsistencies are detected.
@@ -136,7 +136,7 @@ result, deadlock as each waits for the other to release its lock) are
 a problem. Compile with -DDEBUG_LOCKORDER to get lock order
 inconsistencies reported in the debug.log file.
 
-Re-architecting the core code so there are better-defined interfaces
+Re-architecting the code so there are better-defined interfaces
 between the various components is a goal, with any necessary locking
 done by the components (e.g. see the self-contained CKeyStore class
 and its cs_KeyStore lock for example).
@@ -154,7 +154,7 @@ Threads
 
 - ThreadMapPort : Universal plug-and-play startup/shutdown
 
-- ThreadSocketHandler : Sends/Receives data from peers on port 8333.
+- ThreadSocketHandler : Sends/Receives data from peers on port 11054.
 
 - ThreadOpenAddedConnections : Opens network connections to added nodes.
 
@@ -166,9 +166,9 @@ Threads
 
 - ThreadFlushWalletDB : Close the wallet.dat file if it hasn't been used in 500ms.
 
-- ThreadRPCServer : Remote procedure call handler, listens on port 8332 for connections and services them.
+- ThreadRPCServer : Remote procedure call handler, listens on port 11055 for connections and services them.
 
-- BitcoinMiner : Generates bitcoins (if wallet is enabled).
+- BitcoinMiner : Generates graincoins (if wallet is enabled).
 
 - Shutdown : Does an orderly shutdown of everything.
 
@@ -178,7 +178,7 @@ Ignoring IDE/editor files
 In closed-source environments in which everyone uses the same IDE it is common
 to add temporary files it produces to the project-wide `.gitignore` file.
 
-However, in open source software such as Bitcoin Core, where everyone uses
+However, in open source software such as Graincoin, where everyone uses
 their own editors/IDE/tools, it is less common. Only you know what files your
 editor produces and this may change from version to version. The canonical way
 to do this is thus to create your local gitignore. Add this to `~/.gitconfig`:
@@ -208,10 +208,10 @@ Development guidelines
 ============================
 
 A few non-style-related recommendations for developers, as well as points to
-pay attention to for reviewers of Bitcoin Core code.
+pay attention to for reviewers of Graincoin code.
 
-General Bitcoin Core
-----------------------
+General Graincoin
+-------------------
 
 - New features should be exposed on RPC first, then can be made available in the GUI
 
@@ -321,7 +321,7 @@ Strings and formatting
 
 - For `strprintf`, `LogPrint`, `LogPrintf` formatting characters don't need size specifiers
 
-  - *Rationale*: Bitcoin Core uses tinyformat, which is type safe. Leave them out to avoid confusion
+  - *Rationale*: Graincoin uses tinyformat, which is type safe. Leave them out to avoid confusion
 
 Threads and synchronization
 ----------------------------

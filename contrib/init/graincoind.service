@@ -1,0 +1,22 @@
+[Unit]
+Description=Graincoin's distributed currency daemon
+After=network.target
+
+[Service]
+User=graincoin
+Group=graincoin
+
+Type=forking
+PIDFile=/var/lib/graincoind/graincoind.pid
+ExecStart=/usr/bin/graincoind -daemon -pid=/var/lib/graincoind/graincoind.pid \
+-conf=/etc/graincoin/graincoin.conf -datadir=/var/lib/graincoind -disablewallet
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

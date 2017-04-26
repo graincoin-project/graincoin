@@ -23,7 +23,7 @@ except ImportError:
 
 class ZMQTest (BitcoinTestFramework):
 
-    port = 28332
+    port = 31055
 
     def setup_nodes(self):
         self.zmqContext = zmq.Context()

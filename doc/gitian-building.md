@@ -1,17 +1,17 @@
 Gitian building
 ================
 
-*Setup instructions for a Gitian build of Bitcoin using a Debian VM or physical system.*
+*Setup instructions for a Gitian build of Graincoin using a Debian VM or physical system.*
 
-Gitian is the deterministic build process that is used to build the Bitcoin
-Core executables. It provides a way to be reasonably sure that the
+Gitian is the deterministic build process that is used to build the Graincoin
+executables. It provides a way to be reasonably sure that the
 executables are really built from the source on GitHub. It also makes sure that
 the same, tested dependencies are used and statically built into the executable.
 
 Multiple developers build the source code by following a specific descriptor
 ("recipe"), cryptographically sign the result, and upload the resulting signature.
 These results are compared and only if they match, the build is accepted and uploaded
-to bitcoin.org.
+to graincoin.net.
 
 More independent Gitian builders are needed, which is why this guide exists.
 It is preferred you follow these steps yourself instead of using someone else's
@@ -26,7 +26,7 @@ Table of Contents
 - [Installing Gitian](#installing-gitian)
 - [Setting up the Gitian image](#setting-up-the-gitian-image)
 - [Getting and building the inputs](#getting-and-building-the-inputs)
-- [Building Bitcoin](#building-bitcoin)
+- [Building Graincoin](#building-graincoin)
 - [Building an alternative repository](#building-an-alternative-repository)
 - [Signing externally](#signing-externally)
 - [Uploading signatures](#uploading-signatures)
@@ -74,11 +74,11 @@ In the VirtualBox GUI click "Create" and choose the following parameters in the 
 - File location and size: at least 40GB; as low as 20GB *may* be possible, but better to err on the safe side
 - Click `Create`
 
-Get the [Debian 8.x net installer](http://cdimage.debian.org/debian-cd/8.2.0/amd64/iso-cd/debian-8.2.0-amd64-netinst.iso) (a more recent minor version should also work, see also [Debian Network installation](https://www.debian.org/CD/netinst/)).
+Get the [Debian 8.x net installer](http://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-8.7.1-amd64-netinst.iso) (a more recent minor version should also work, see also [Debian Network installation](https://www.debian.org/CD/netinst/)).
 This DVD image can be validated using a SHA256 hashing tool, for example on
 Unixy OSes by entering the following in a terminal:
 
-    echo "d393d17ac6b3113c81186e545c416a00f28ed6e05774284bb5e8f0df39fcbcb9  debian-8.2.0-amd64-netinst.iso" | sha256sum -c
+    echo "749a15b7690769dd99e85d6104182a03d370b04b36106ec7cfaf6a551aa89fb4  debian-8.7.1-amd64-netinst.iso" | sha256sum -c
     # (must return OK)
 
 After creating the VM, we need to configure it.
@@ -300,11 +300,11 @@ cd ..
 
 **Note**: When sudo asks for a password, enter the password for the user *debian* not for *root*.
 
-Clone the git repositories for bitcoin and Gitian.
+Clone the git repositories for graincoin and Gitian.
 
 ```bash
 git clone https://github.com/devrandom/gitian-builder.git
-git clone https://github.com/bitcoin/bitcoin
+git clone https://github.com/graincoin-project/graincoin
 ```
 
 Setting up the Gitian image
@@ -331,16 +331,16 @@ Getting and building the inputs
 --------------------------------
 
 Follow the instructions in [doc/release-process.md](release-process.md#fetch-and-build-inputs-first-time-or-when-dependency-versions-change)
-in the bitcoin repository under 'Fetch and build inputs' to install sources which require
+in the graincoin repository under 'Fetch and build inputs' to install sources which require
 manual intervention. Also optionally follow the next step: 'Seed the Gitian sources cache
 and offline git repositories' which will fetch the remaining files required for building
 offline.
 
-Building Bitcoin
-----------------
+Building Graincoin
+------------------
 
-To build Bitcoin (for Linux, OS X and Windows) just follow the steps under 'perform
-Gitian builds' in [doc/release-process.md](release-process.md#perform-gitian-builds) in the bitcoin repository.
+To build Graincoin (for Linux, OS X and Windows) just follow the steps under 'perform
+Gitian builds' in [doc/release-process.md](release-process.md#perform-gitian-builds) in the graincoin repository.
 
 This may take some time as it will build all the dependencies needed for each descriptor.
 These dependencies will be cached after a successful build to avoid rebuilding them when possible.
@@ -354,12 +354,12 @@ tail -f var/build.log
 
 Output from `gbuild` will look something like
 
-    Initialized empty Git repository in /home/debian/gitian-builder/inputs/bitcoin/.git/
+    Initialized empty Git repository in /home/debian/gitian-builder/inputs/graincoin/.git/
     remote: Counting objects: 57959, done.
     remote: Total 57959 (delta 0), reused 0 (delta 0), pack-reused 57958
     Receiving objects: 100% (57959/57959), 53.76 MiB | 484.00 KiB/s, done.
     Resolving deltas: 100% (41590/41590), done.
-    From https://github.com/bitcoin/bitcoin
+    From https://github.com/graincoin/graincoin
     ... (new tags, new branch etc)
     --- Building for precise amd64 ---
     Stopping target if it is up
@@ -385,18 +385,18 @@ and inputs.
 
 For example:
 ```bash
-URL=https://github.com/laanwj/bitcoin.git
+URL=https://github.com/grain-crypto/grain.git
 COMMIT=2014_03_windows_unicode_path
-./bin/gbuild --commit bitcoin=${COMMIT} --url bitcoin=${URL} ../bitcoin/contrib/gitian-descriptors/gitian-linux.yml
-./bin/gbuild --commit bitcoin=${COMMIT} --url bitcoin=${URL} ../bitcoin/contrib/gitian-descriptors/gitian-win.yml
-./bin/gbuild --commit bitcoin=${COMMIT} --url bitcoin=${URL} ../bitcoin/contrib/gitian-descriptors/gitian-osx.yml
+./bin/gbuild --commit graincoin=${COMMIT} --url graincoin=${URL} ../graincoin/contrib/gitian-descriptors/gitian-linux.yml
+./bin/gbuild --commit graincoin=${COMMIT} --url graincoin=${URL} ../graincoin/contrib/gitian-descriptors/gitian-win.yml
+./bin/gbuild --commit graincoin=${COMMIT} --url graincoin=${URL} ../graincoin/contrib/gitian-descriptors/gitian-osx.yml
 ```
 
 Building fully offline
 -----------------------
 
 For building fully offline including attaching signatures to unsigned builds, the detached-sigs repository
-and the bitcoin git repository with the desired tag must both be available locally, and then gbuild must be
+and the graincoin git repository with the desired tag must both be available locally, and then gbuild must be
 told where to find them. It also requires an apt-cacher-ng which is fully-populated but set to offline mode, or
 manually disabling gitian-builder's use of apt-get to update the VM build environment.
 
@@ -415,7 +415,7 @@ cd /path/to/gitian-builder
 LXC_ARCH=amd64 LXC_SUITE=precise on-target -u root apt-get update
 LXC_ARCH=amd64 LXC_SUITE=precise on-target -u root \
   -e DEBIAN_FRONTEND=noninteractive apt-get --no-install-recommends -y install \
-  $( sed -ne '/^packages:/,/[^-] .*/ {/^- .*/{s/"//g;s/- //;p}}' ../bitcoin/contrib/gitian-descriptors/*|sort|uniq )
+  $( sed -ne '/^packages:/,/[^-] .*/ {/^- .*/{s/"//g;s/- //;p}}' ../graincoin/contrib/gitian-descriptors/*|sort|uniq )
 LXC_ARCH=amd64 LXC_SUITE=precise on-target -u root apt-get -q -y purge grub
 LXC_ARCH=amd64 LXC_SUITE=precise on-target -u root -e DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade
 ```
@@ -435,12 +435,12 @@ Then when building, override the remote URLs that gbuild would otherwise pull fr
 ```bash
 
 cd /some/root/path/
-git clone https://github.com/bitcoin/bitcoin-detached-sigs.git
+git clone https://github.com/graincoin-project/graincoin-detached-sigs.git
 
-BTCPATH=/some/root/path/bitcoin.git
-SIGPATH=/some/root/path/bitcoin-detached-sigs.git
+GRAPATH=/some/root/path/graincoin.git
+SIGPATH=/some/root/path/graincoin-detached-sigs.git
 
-./bin/gbuild --url bitcoin=${BTCPATH},signature=${SIGPATH} ../bitcoin/contrib/gitian-descriptors/gitian-win-signer.yml
+./bin/gbuild --url graincoin=${GRAPATH},signature=${SIGPATH} ../graincoin/contrib/gitian-descriptors/gitian-win-signer.yml
 ```
 
 Signing externally
@@ -455,9 +455,9 @@ When you execute `gsign` you will get an error from GPG, which can be ignored. C
 in `gitian.sigs` to your signing machine and do
 
 ```bash
-    gpg --detach-sign ${VERSION}-linux/${SIGNER}/bitcoin-linux-build.assert
-    gpg --detach-sign ${VERSION}-win/${SIGNER}/bitcoin-win-build.assert
-    gpg --detach-sign ${VERSION}-osx-unsigned/${SIGNER}/bitcoin-osx-build.assert
+    gpg --detach-sign ${VERSION}-linux/${SIGNER}/graincoin-linux-build.assert
+    gpg --detach-sign ${VERSION}-win/${SIGNER}/graincoin-win-build.assert
+    gpg --detach-sign ${VERSION}-osx-unsigned/${SIGNER}/graincoin-osx-build.assert
 ```
 
 This will create the `.sig` files that can be committed together with the `.assert` files to assert your
@@ -467,5 +467,5 @@ Uploading signatures
 ---------------------
 
 After building and signing you can push your signatures (both the `.assert` and `.assert.sig` files) to the
-[bitcoin/gitian.sigs](https://github.com/bitcoin/gitian.sigs/) repository, or if that's not possible create a pull
-request. You can also mail the files to Wladimir (laanwj@gmail.com) and he will commit them.
+[graincoin-project/gitian.sigs](https://github.com/graincoin-project/gitian.sigs) repository, or if that's not possible create a pull
+request. You can also mail the files to Getreidemakler (getreidemakler@blkid.net) and he will commit them.

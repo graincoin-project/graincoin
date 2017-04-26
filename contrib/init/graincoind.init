@@ -1,0 +1,67 @@
+#!/bin/bash
+#
+#  graincoind The graincoin server.
+#
+#
+# chkconfig: 345 80 20
+# description: graincoind
+# processname: graincoind
+#
+
+# Source function library.
+. /etc/init.d/functions
+
+# you can override defaults in /etc/sysconfig/graincoind, see below
+if [ -f /etc/sysconfig/graincoind ]; then
+        . /etc/sysconfig/graincoind
+fi
+
+RETVAL=0
+
+prog=graincoind
+# you can override the lockfile via GRAINCOIND_LOCKFILE in /etc/sysconfig/graincoind
+lockfile=${GRAINCOIND_LOCKFILE-/var/lock/subsys/graincoind}
+
+# graincoind defaults to /usr/bin/graincoind, override with GRAINCOIND_BIN
+graincoind=${GRAINCOIND_BIN-/usr/bin/graincoind}
+
+# graincoind opts default to -disablewallet, override with GRAINCOIND_OPTS
+graincoind_opts=${GRAINCOIND_OPTS--disablewallet}
+
+start() {
+    echo -n $"Starting $prog: "
+    daemon $DAEMONOPTS $graincoind $graincoind_opts
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && touch $lockfile
+    return $RETVAL
+}
+
+stop() {
+    echo -n $"Stopping $prog: "
+    killproc $prog
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && rm -f $lockfile
+    return $RETVAL
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status $prog
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    *)
+        echo "Usage: service $prog {start|stop|status|restart}"
+        exit 1
+        ;;
+esac

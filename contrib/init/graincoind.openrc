@@ -1,0 +1,92 @@
+#!/sbin/runscript
+
+# backward compatibility for existing gentoo layout 
+#
+if [ -d "/var/lib/graincoin/.graincoin" ]; then
+	GRAINCOIND_DEFAULT_DATADIR="/var/lib/graincoin/.graincoin"
+else
+	GRAINCOIND_DEFAULT_DATADIR="/var/lib/graincoind"
+fi
+
+GRAINCOIND_CONFIGFILE=${GRAINCOIND_CONFIGFILE:-/etc/graincoin/graincoin.conf}
+GRAINCOIND_PIDDIR=${GRAINCOIND_PIDDIR:-/var/run/graincoind}
+GRAINCOIND_PIDFILE=${GRAINCOIND_PIDFILE:-${GRAINCOIND_PIDDIR}/graincoind.pid}
+GRAINCOIND_DATADIR=${GRAINCOIND_DATADIR:-${GRAINCOIND_DEFAULT_DATADIR}}
+GRAINCOIND_USER=${GRAINCOIND_USER:-${GRAINCOIN_USER:-graincoin}}
+GRAINCOIND_GROUP=${GRAINCOIND_GROUP:-graincoin}
+GRAINCOIND_BIN=${GRAINCOIND_BIN:-/usr/bin/graincoind}
+GRAINCOIND_NICE=${GRAINCOIND_NICE:-${NICELEVEL:-0}}
+GRAINCOIND_OPTS="${GRAINCOIND_OPTS:-${GRAINCOIN_OPTS}}"
+
+name="Graincoin Daemon"
+description="Graincoin cryptocurrency P2P network daemon"
+
+command="/usr/bin/graincoind"
+command_args="-pid=\"${GRAINCOIND_PIDFILE}\" \
+		-conf=\"${GRAINCOIND_CONFIGFILE}\" \
+		-datadir=\"${GRAINCOIND_DATADIR}\" \
+		-daemon \
+		${GRAINCOIND_OPTS}"
+
+required_files="${GRAINCOIND_CONFIGFILE}"
+start_stop_daemon_args="-u ${GRAINCOIND_USER} \
+			-N ${GRAINCOIND_NICE} -w 2000"
+pidfile="${GRAINCOIND_PIDFILE}"
+
+# The retry schedule to use when stopping the daemon. Could be either
+# a timeout in seconds or multiple signal/timeout pairs (like
+# "SIGKILL/180 SIGTERM/300")
+retry="${GRAINCOIND_SIGTERM_TIMEOUT}"
+
+depend() {
+	need localmount net
+}
+
+# verify
+# 1) that the datadir exists and is writable (or create it)
+# 2) that a directory for the pid exists and is writable
+# 3) ownership and permissions on the config file
+start_pre() {
+	checkpath \
+	-d \
+	--mode 0750 \
+	--owner "${GRAINCOIND_USER}:${GRAINCOIND_GROUP}" \
+	"${GRAINCOIND_DATADIR}"
+
+	checkpath \
+	-d \
+	--mode 0755 \
+	--owner "${GRAINCOIND_USER}:${GRAINCOIND_GROUP}" \
+	"${GRAINCOIND_PIDDIR}"
+
+	checkpath -f \
+	-o ${GRAINCOIND_USER}:${GRAINCOIND_GROUP} \
+	-m 0660 \
+	${GRAINCOIND_CONFIGFILE}
+
+	checkconfig || return 1
+}
+
+checkconfig()
+{
+	if ! grep -qs '^rpcpassword=' "${GRAINCOIND_CONFIGFILE}" ; then
+		eerror ""
+		eerror "ERROR: You must set a secure rpcpassword to run graincoind."
+		eerror "The setting must appear in ${GRAINCOIND_CONFIGFILE}"
+		eerror ""
+		eerror "This password is security critical to securing wallets "
+		eerror "and must not be the same as the rpcuser setting."
+		eerror "You can generate a suitable random password using the following"
+		eerror "command from the shell:"
+		eerror ""
+		eerror "bash -c 'tr -dc a-zA-Z0-9 < /dev/urandom | head -c32 && echo'"
+		eerror ""
+		eerror "It is also recommended that you also set alertnotify so you are "
+		eerror "notified of problems:"
+		eerror ""
+		eerror "ie: alertnotify=echo %%s | mail -s \"Graincoin Alert\"" \
+			"admin@foo.com"
+		eerror ""
+		return 1
+	fi
+}
