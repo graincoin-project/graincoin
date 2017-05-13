@@ -67,11 +67,11 @@
     </message>
     <message>
         <source>These are your Graincoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>这是您用来付款的Graincoin地址。在付款前，请仔细核实付款金额和收款地址。</translation>
+        <translation>这是您用来付款的谷物地址。在付款前，请仔细核实付款金额和收款地址。</translation>
     </message>
     <message>
         <source>These are your Graincoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>这些都是您的Graincoin地址，可用于收款。建议对每笔交易都使用一个新的地址。</translation>
+        <translation>这些都是您的谷物地址，可用于收款。建议对每笔交易都使用一个新的地址。</translation>
     </message>
     <message>
         <source>Copy &amp;Label</source>
@@ -160,8 +160,8 @@
         <translation>确认加密钱包</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR BITCOINS&lt;/b&gt;!</source>
-        <translation>警告：如果您加密了您的钱包，但是忘记了密码，你将会&lt;b&gt;丢失所有的Graincoin&lt;/b&gt;！</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR GRAINCOINS&lt;/b&gt;!</source>
+        <translation>警告：如果您加密了您的钱包，但是忘记了密码，你将会&lt;b&gt;丢失所有的谷物&lt;/b&gt;！</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -169,7 +169,7 @@
     </message>
     <message>
         <source>Graincoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your graincoins from being stolen by malware infecting your computer.</source>
-        <translation>Graincoin现在将关闭以完成加密过程。请记住，在您的计算机被恶意软件感染的情况下，加密不能完全保护您的Graincoin免于被盗。</translation>
+        <translation>谷物现在将关闭以完成加密过程。请记住，在您的计算机被恶意软件感染的情况下，加密不能完全保护您的谷物免于被盗。</translation>
     </message>
     <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
@@ -307,7 +307,7 @@
     </message>
     <message>
         <source>Graincoin client</source>
-        <translation>Graincoin钱包客户端</translation>
+        <translation>谷物钱包客户端</translation>
     </message>
     <message>
         <source>Importing blocks from disk...</source>
@@ -319,7 +319,7 @@
     </message>
     <message>
         <source>Send coins to a Graincoin address</source>
-        <translation>向一个Graincoin地址发送Graincoin</translation>
+        <translation>向一个谷物地址发送谷物</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -343,7 +343,7 @@
     </message>
     <message>
         <source>Graincoin</source>
-        <translation>Graincoin</translation>
+        <translation>谷物</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -359,7 +359,7 @@
     </message>
     <message>
         <source>Show information about Graincoin</source>
-        <translation>显示有关Graincoin钱包信息</translation>
+        <translation>显示有关谷物钱包信息</translation>
     </message>
     <message>
         <source>&amp;Show / Hide</source>
@@ -375,11 +375,11 @@
     </message>
     <message>
         <source>Sign messages with your Graincoin addresses to prove you own them</source>
-        <translation>用Graincoin地址关联的私钥为消息签名，以证明您拥有这个Graincoin地址</translation>
+        <translation>用谷物地址关联的私钥为消息签名，以证明您拥有这个谷物地址</translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified Graincoin addresses</source>
-        <translation>校验消息，确保该消息是由指定的Graincoin地址所有者签名的</translation>
+        <translation>校验消息，确保该消息是由指定的谷物地址所有者签名的</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -400,15 +400,15 @@
     
     <message>
         <source>Request payments (generates QR codes and graincoin: URIs)</source>
-        <translation>请求支付（生成二维码和 graincoin: URI）</translation>
+        <translation>请求支付（生成二维码和 谷物: URI）</translation>
     </message>
     <message>
         <source>&amp;About Graincoin</source>
-        <translation>关于Graincoin(&amp;A)</translation>
+        <translation>关于谷物(&amp;A)</translation>
     </message>
     <message>
         <source>Modify configuration options for Graincoin</source>
-        <translation>修改Graincoin的配置选项</translation>
+        <translation>修改谷物的配置选项</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -420,7 +420,7 @@
     </message>
     <message>
         <source>Open a graincoin: URI or payment request</source>
-        <translation>打开一个Graincoin：URI 或支付请求</translation>
+        <translation>打开一个谷物：URI 或支付请求</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -428,11 +428,11 @@
     </message>
     <message>
         <source>Show the Graincoin help message to get a list with possible Graincoin command-line options</source>
-        <translation>显示Graincoin 程序帮助信息，获取可用的命令行选项 </translation>
+        <translation>显示谷物 程序帮助信息，获取可用的命令行选项 </translation>
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to Graincoin network</source>
-        <translation><numerusform>%n 个到Graincoin网络的活动连接</numerusform></translation>
+        <translation><numerusform>%n 个到谷物网络的活动连接</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>
@@ -815,7 +815,7 @@
     </message>
     <message>
         <source>The entered address "%1" is not a valid Graincoin address.</source>
-        <translation>您输入的“%1”不是有效的Graincoin地址。</translation>
+        <translation>您输入的“%1”不是有效的谷物地址。</translation>
     </message>
     <message>
         <source>Could not unlock wallet.</source>
@@ -853,7 +853,7 @@
     <name>HelpMessageDialog</name>
     <message>
         <source>Graincoin</source>
-        <translation>Graincoin</translation>
+        <translation>谷物</translation>
     </message>
     <message>
         <source>version</source>
@@ -865,7 +865,7 @@
     </message>
     <message>
         <source>About Graincoin</source>
-        <translation>关于Graincoin</translation>
+        <translation>关于谷物</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -916,15 +916,15 @@
     </message>
     <message>
         <source>Welcome to Graincoin.</source>
-        <translation>欢迎使用 Graincoin 程序。</translation>
+        <translation>欢迎使用 谷物 程序。</translation>
     </message>
     <message>
         <source>As this is the first time the program is launched, you can choose where Graincoin will store its data.</source>
-        <translation>由于这是第一次运行 Graincoin 程序，您可以选择数据存储目录。</translation>
+        <translation>由于这是第一次运行 谷物 程序，您可以选择数据存储目录。</translation>
     </message>
     <message>
         <source>Graincoin will download and store a copy of the Graincoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>Graincoin 程序会下载储存一份数据块链(blockchain)。至少需要 %1 GB的存储空间，随着时间推移会需要更多的存储空间。钱包文件也储存在该目录。</translation>
+        <translation>谷物 程序会下载储存一份数据块链(blockchain)。至少需要 %1 GB的存储空间，随着时间推移会需要更多的存储空间。钱包文件也储存在该目录。</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -936,7 +936,7 @@
     </message>
     <message>
         <source>Graincoin</source>
-        <translation>Graincoin</translation>
+        <translation>谷物</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -1018,7 +1018,7 @@
     </message>
     <message>
         <source>The user interface language can be set here. This setting will take effect after restarting Graincoin.</source>
-        <translation>可以在这里设置用户界面语言。此设置将在重新启动Graincoin后生效。</translation>
+        <translation>可以在这里设置用户界面语言。此设置将在重新启动谷物后生效。</translation>
     </message>
     <message>
         <source>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</source>
@@ -1046,11 +1046,11 @@
     </message>
     <message>
         <source>Automatically start Graincoin after logging in to the system.</source>
-        <translation>登录到系统后自动启动Graincoin。</translation>
+        <translation>登录到系统后自动启动谷物。</translation>
     </message>
     <message>
         <source>&amp;Start Graincoin on system login</source>
-        <translation>系统登录时启动Graincoin(&amp;S)</translation>
+        <translation>系统登录时启动谷物(&amp;S)</translation>
     </message>
     <message>
         <source>(0 = auto, &lt;0 = leave that many cores free)</source>
@@ -1078,7 +1078,7 @@
     </message>
     <message>
         <source>Automatically open the Graincoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>自动在路由器中打开Graincoin端口。只有当您的路由器开启了 UPnP 选项时此功能才有效。</translation>
+        <translation>自动在路由器中打开谷物端口。只有当您的路由器开启了 UPnP 选项时此功能才有效。</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -1086,7 +1086,7 @@
     </message>
     <message>
         <source>Connect to the Graincoin network through a SOCKS5 proxy.</source>
-        <translation>通过 SOCKS5 代理连接Graincoin网络。</translation>
+        <translation>通过 SOCKS5 代理连接谷物网络。</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -1126,7 +1126,7 @@
     </message>
     <message>
         <source>Connect to the Graincoin network through a separate SOCKS5 proxy for Tor hidden services.</source>
-        <translation>在Tor匿名网络下通过不同的SOCKS5代理连接Graincoin网络</translation>
+        <translation>在Tor匿名网络下通过不同的SOCKS5代理连接谷物网络</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services:</source>
@@ -1158,11 +1158,11 @@
     </message>
     <message>
         <source>&amp;Unit to show amounts in:</source>
-        <translation>Graincoin金额单位(&amp;U)：</translation>
+        <translation>谷物金额单位(&amp;U)：</translation>
     </message>
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>选择Graincoin单位。</translation>
+        <translation>选择谷物单位。</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -1213,7 +1213,7 @@
     </message>
     <message>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Graincoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>现在显示的消息可能是过期的. 在连接上Graincoin网络节点后，您的钱包将自动与网络同步，但是这个过程还没有完成。</translation>
+        <translation>现在显示的消息可能是过期的. 在连接上谷物网络节点后，您的钱包将自动与网络同步，但是这个过程还没有完成。</translation>
     </message>
     <message>
         <source>Watch-only:</source>
@@ -1312,7 +1312,7 @@
     </message>
     <message>
         <source>Cannot start graincoin: click-to-pay handler</source>
-        <translation>暂时无法启动Graincoin：点击支付功能</translation>
+        <translation>暂时无法启动谷物：点击支付功能</translation>
     </message>
     <message>
         <source>Payment request fetch URL is invalid: %1</source>
@@ -1320,7 +1320,7 @@
     </message>
     <message>
         <source>URI cannot be parsed! This can be caused by an invalid Graincoin address or malformed URI parameters.</source>
-        <translation>URI无法解析！原因可能是Graincoin地址不正确，或者URI参数错误。</translation>
+        <translation>URI无法解析！原因可能是谷物地址不正确，或者URI参数错误。</translation>
     </message>
     <message>
         <source>Payment request file handling</source>
@@ -1394,7 +1394,7 @@
     </message>
     <message>
         <source>Enter a Graincoin address (e.g. %1)</source>
-        <translation>请输入一个Graincoin地址 (例如 %1)</translation>
+        <translation>请输入一个谷物地址 (例如 %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1516,7 +1516,7 @@
     </message>
     <message>
         <source>Open the Graincoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>从当前的数据目录打开Graincoin调试日志文件。对于较大的日志文件，这可能需要几秒钟。</translation>
+        <translation>从当前的数据目录打开谷物调试日志文件。对于较大的日志文件，这可能需要几秒钟。</translation>
     </message>
     <message>
         <source>Received</source>
@@ -1672,7 +1672,7 @@
     </message>
     <message>
         <source>Welcome to the Graincoin RPC console.</source>
-        <translation>欢迎使用 Graincoin RPC 控制台。</translation>
+        <translation>欢迎使用 谷物 RPC 控制台。</translation>
     </message>
     <message>
         <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
@@ -1755,7 +1755,7 @@
     </message>
     <message>
         <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Graincoin network.</source>
-        <translation>可在付款请求上备注一条信息，在打开付款请求时可以看到。注意：该消息不是通过Graincoin网络传送。</translation>
+        <translation>可在付款请求上备注一条信息，在打开付款请求时可以看到。注意：该消息不是通过谷物网络传送。</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -1904,7 +1904,7 @@
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-        <translation>发送Graincoin</translation>
+        <translation>发送谷物</translation>
     </message>
     <message>
         <source>Coin Control Features</source>
@@ -2120,7 +2120,7 @@
     </message>
     <message>
         <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>错误：该交易被拒绝！发生这种错误的原因可能是：钱包中的Graincoin已经被用掉，有可能您复制了wallet.dat钱包文件，然后用复制的钱包文件支付了Graincoin，但是这个钱包文件中没有记录。</translation>
+        <translation>错误：该交易被拒绝！发生这种错误的原因可能是：钱包中的谷物已经被用掉，有可能您复制了wallet.dat钱包文件，然后用复制的钱包文件支付了谷物，但是这个钱包文件中没有记录。</translation>
     </message>
     <message>
         <source>A fee higher than %1 is considered an absurdly high fee.</source>
@@ -2148,7 +2148,7 @@
     </message>
     <message>
         <source>Warning: Invalid Graincoin address</source>
-        <translation>警告：无效的Graincoin地址</translation>
+        <translation>警告：无效的谷物地址</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -2219,7 +2219,7 @@
     </message>
     <message>
         <source>The fee will be deducted from the amount being sent. The recipient will receive less graincoins than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
-        <translation>交易费将从发送总额中扣除。接收人将收到比您在金额框中输入的更少的Graincoin。如果选中了多个收件人，交易费平分。</translation>
+        <translation>交易费将从发送总额中扣除。接收人将收到比您在金额框中输入的更少的谷物。如果选中了多个收件人，交易费平分。</translation>
     </message>
     <message>
         <source>S&amp;ubtract fee from amount</source>
@@ -2243,7 +2243,7 @@
     </message>
     <message>
         <source>A message that was attached to the graincoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Graincoin network.</source>
-        <translation>graincoin:URI 附带的备注信息，将会和交易一起存储，备查。 注意：该消息不会通过Graincoin网络传输。</translation>
+        <translation>谷物:URI 附带的备注信息，将会和交易一起存储，备查。 注意：该消息不会通过谷物网络传输。</translation>
     </message>
     <message>
         <source>Pay To:</source>
@@ -2258,7 +2258,7 @@
     <name>ShutdownWindow</name>
     <message>
         <source>Graincoin is shutting down...</source>
-        <translation>Graincoin正在关机...</translation>
+        <translation>谷物正在关机...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -2277,7 +2277,7 @@
     </message>
     <message>
         <source>You can sign messages/agreements with your addresses to prove you can receive graincoins sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
-        <translation>您可以用你的地址对消息/协议进行签名，以证明您可以接收发送到该地址的Graincoin。注意不要对任何模棱两可或者随机的消息进行签名，以免遭受钓鱼式攻击。请确保消息内容准确的表达了您的真实意愿。</translation>
+        <translation>您可以用你的地址对消息/协议进行签名，以证明您可以接收发送到该地址的谷物。注意不要对任何模棱两可或者随机的消息进行签名，以免遭受钓鱼式攻击。请确保消息内容准确的表达了您的真实意愿。</translation>
     </message>
     <message>
         <source>The Graincoin address to sign the message with</source>
@@ -2341,7 +2341,7 @@
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified Graincoin address</source>
-        <translation>验证消息，确保消息是由指定的Graincoin地址签名过的。</translation>
+        <translation>验证消息，确保消息是由指定的谷物地址签名过的。</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -2408,11 +2408,11 @@
     <name>SplashScreen</name>
     <message>
         <source>Graincoin</source>
-        <translation>Graincoin</translation>
+        <translation>谷物</translation>
     </message>
     <message>
         <source>The Graincoin developers</source>
-        <translation>Graincoin 的开发者</translation>
+        <translation>谷物 的开发者</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -2538,7 +2538,7 @@
     </message>
     <message>
         <source>Generated coins must mature %1 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to "not accepted" and it won't be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
-        <translation>生成的Graincoin在可以使用前必须有 %1 个成熟的区块。当您生成了此区块后，它将被广播到网络中以加入区块链。如果它未成功进入区块链，其状态将变更为“不接受”并且不可使用。这可能偶尔会发生，如果另一个节点比你早几秒钟成功生成一个区块。</translation>
+        <translation>生成的谷物在可以使用前必须有 %1 个成熟的区块。当您生成了此区块后，它将被广播到网络中以加入区块链。如果它未成功进入区块链，其状态将变更为“不接受”并且不可使用。这可能偶尔会发生，如果另一个节点比你早几秒钟成功生成一个区块。</translation>
     </message>
     <message>
         <source>Debug information</source>
@@ -2860,7 +2860,7 @@
     <name>WalletModel</name>
     <message>
         <source>Send Coins</source>
-        <translation>发送Graincoin</translation>
+        <translation>发送谷物</translation>
     </message>
 </context>
 <context>
@@ -2933,7 +2933,7 @@
     </message>
     <message>
         <source>Please check that your computer's date and time are correct! If your clock is wrong Graincoin will not work properly.</source>
-        <translation>警请检查电脑的日期时间设置是否正确！时间错误可能会导致Graincoin客户端运行异常。</translation>
+        <translation>警请检查电脑的日期时间设置是否正确！时间错误可能会导致谷物客户端运行异常。</translation>
     </message>
     <message>
         <source>Prune configured below the minimum of %d MiB.  Please use a higher number.</source>
@@ -2998,7 +2998,7 @@
     </message>
     <message>
         <source>Unable to bind to %s on this computer. Graincoin is probably already running.</source>
-        <translation>无法 %s的绑定到电脑上，Graincoin钱包可能已经在运行。</translation>
+        <translation>无法 %s的绑定到电脑上，谷物钱包可能已经在运行。</translation>
     </message>
     <message>
         <source>Use UPnP to map the listening port (default: 1 when listening and no -proxy)</source>
@@ -3202,7 +3202,7 @@
     </message>
     <message>
         <source>Cannot obtain a lock on data directory %s. Graincoin is probably already running.</source>
-        <translation>无法获取数据目录的 %s. Graincoin钱包可能已经在运行.</translation>
+        <translation>无法获取数据目录的 %s. 谷物钱包可能已经在运行.</translation>
     </message>
     <message>
         <source>Create new files with system default permissions, instead of umask 077 (only effective with disabled wallet functionality)</source>
@@ -3246,7 +3246,7 @@
     </message>
     <message>
         <source>Set the number of threads for coin generation if enabled (-1 = all cores, default: %d)</source>
-        <translation>设置Graincoin生成线程数 ( -1=所有核, 默认: %d) </translation>
+        <translation>设置谷物生成线程数 ( -1=所有核, 默认: %d) </translation>
     </message>
     <message>
         <source>The transaction amount is too small to send after the fee has been deducted</source>
@@ -3286,11 +3286,11 @@
     </message>
     <message>
         <source>Copyright (C) 2009-%i The Graincoin Developers</source>
-        <translation>版权所有 (C) 2009-%i Graincoin 开发者</translation>
+        <translation>版权所有 (C) 2009-%i 谷物 开发者</translation>
     </message>
     <message>
         <source>Error loading wallet.dat: Wallet requires newer version of Graincoin</source>
-        <translation>加载wallet.dat错误：需要新版的Graincoin钱包</translation>
+        <translation>加载wallet.dat错误：需要新版的谷物钱包</translation>
     </message>
     <message>
         <source>Error reading from database, shutting down.</source>
@@ -3302,7 +3302,7 @@
     </message>
     <message>
         <source>Initialization sanity check failed. Graincoin is shutting down.</source>
-        <translation>初始化完整性检查失败。Graincoin 即将关闭。</translation>
+        <translation>初始化完整性检查失败。谷物 即将关闭。</translation>
     </message>
     <message>
         <source>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s'</source>
@@ -3500,7 +3500,7 @@
     </message>
     <message>
         <source>Generate coins (default: %u)</source>
-        <translation>生成Graincoin (默认: %u)</translation>
+        <translation>生成谷物 (默认: %u)</translation>
     </message>
     <message>
         <source>How many blocks to check at startup (default: %u, 0 = all)</source>

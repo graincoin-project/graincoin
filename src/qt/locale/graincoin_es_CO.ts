@@ -157,8 +157,8 @@ Estas son las direcciones de Graincoin para enviar pagos . Siempre verifique la 
         <translation>Confirmar encriptación de la billetera</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR BITCOINS&lt;/b&gt;!</source>
-        <translation>Precaución: Si tú has encriptado tu billetera y has perdido tu contraseña, usted &lt;b&gt;PERDERÁ TODOS TUS BITCOINS&lt;/b&gt;</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR GRAINCOINS&lt;/b&gt;!</source>
+        <translation>Precaución: Si tú has encriptado tu billetera y has perdido tu contraseña, usted &lt;b&gt;PERDERÁ TODOS TUS GRAINCOINS&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
